@@ -1,8 +1,8 @@
 $(function () {
     // Create php
-
-    $("form").on("click", function (e) {
+    $("form").on("submit", function (e) {
         e.preventDefault();
+
         let data = $(this).serialize();
 
         $.ajax({
@@ -12,15 +12,11 @@ $(function () {
             dataType: "json",
 
             success: function (response) {
-                console.log({
-                    success: response.success,
-                    message: response.message,
-                });
+                console.log(response);
             },
             error: function (xhr, status, error) {
                 console.error("Error:", error);
             },
         });
     });
-
 });
