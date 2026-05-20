@@ -9,12 +9,18 @@ $(function () {
             url: "./actions/actions.php",
             type: "POST",
             data: data,
+            dataType: "json",
+
             success: function (response) {
-                console.log("Success:", response);
+                console.log({
+                    success: response.success,
+                    message: response.message,
+                });
             },
             error: function (xhr, status, error) {
                 console.error("Error:", error);
             },
         });
     });
+
 });

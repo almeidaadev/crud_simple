@@ -1,8 +1,6 @@
 <?php
 require __DIR__ . "/../helpers/functions.php";
-
 session_start();
-$_SESSION["lang"] = "pt_br";
 ?>
 
 <h1><?= __("h1_create") ?></h1>
