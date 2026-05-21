@@ -3,7 +3,7 @@ $(function () {
     $("form").on("submit", function (e) {
         e.preventDefault();
 
-        let data = $(this).serialize();
+        let data = $(this).serialize() + "&action=create";
 
         $.ajax({
             url: "./actions/actions.php",
