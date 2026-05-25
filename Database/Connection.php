@@ -23,4 +23,3 @@ try {
     error_log("Erro de conexão: " . $e->getMessage());
     die("Erro na conexão com o banco de dados.");
 }
-?>   
