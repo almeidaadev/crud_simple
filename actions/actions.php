@@ -1,20 +1,24 @@
 
 <?php
-
+header('Content-Type: application/json');
 require __DIR__ . "/../Database/Connection.php";
-
-header("Content-Type: application/json");
 
 
 if (empty($_POST["name"]) || empty($_POST["email"]) || empty($_POST["password"])) {
-    echo json_encode("Campos vazios");
+    echo json_encode([
+        "status" => false,
+        "message" => "Todos os campos são obrigatorios"
+    ]);
     exit();
 }
 
 $action = $_POST["action"] ?? null;
 
 if (!$action) {
-    echo json_encode("Não existe ação");
+    echo json_encode([
+        "status" => false,
+        "message" => "Ação inválida"
+    ]);
     exit();
 }
 
@@ -35,11 +39,16 @@ switch ($action) {
         ];
 
         if ($stmt->execute($data)) {
-            echo json_encode("New record created successfully. Last inserted ID: " . $pdo->lastInsertId());
+            echo json_encode([
+                "status" => true,
+                "message" => "New record created successfully."
+            ]);
         } else {
-            echo json_encode("Error inserting data.");
+            echo json_encode([
+                "status" => true,
+                "message" => "Error inserting data."
+            ]);
         }
-        echo json_encode("Creating");
         break;
 
     default:
