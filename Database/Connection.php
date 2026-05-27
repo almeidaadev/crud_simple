@@ -1,6 +1,4 @@
 <?php
-header('Content-Type: application/json');
-
 $host = 'localhost';
 $username = 'root';
 $dbname = 'crud';
@@ -15,3 +13,4 @@ $options = [
 ];
 
 $pdo = new PDO($dsn, $username, $password, $options);
+?>

@@ -1,14 +1,16 @@
+<h1>Delete page</h1>
 <?php
-
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-require __DIR__ . "/../Database/Connection.php";
-
+require "./Database/Connection.php";
 
 $stmt = $pdo->query("SELECT * FROM users");
-$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($users as $user) {
-    echo $user["name"] . "<br>";
-}
 ?>
+
+<ol>
+    <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+        <li>
+            <a class="deleting" data-id="id=<?= $row["user_id"]; ?>"><?= $row["name"] . "<br>"; ?></a>
+        </li>
+    <?php endwhile; ?>
+
+</ol>
