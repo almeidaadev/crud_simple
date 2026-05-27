@@ -12,7 +12,7 @@ $(function () {
             dataType: "json",
 
             success: function (response) {
-                console.log(response);
+                console.log(response.message);
             },
             error: function (xhr, status, error) {
                 console.error("Error:", error);

@@ -27,6 +27,9 @@ $email = $_POST["email"];
 $password = $_POST["password"];
 
 switch ($action) {
+    case "delete":
+
+        break;
     case "create":
         // 2. Prepare the SQL statement with named placeholders
         $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
