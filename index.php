@@ -4,11 +4,15 @@
 
 $page = $_GET["page"] ?? "home";
 
-$path = "./pages" . DIRECTORY_SEPARATOR . $page . ".php";
+$path = "./pages/" . $page . ".php";
 
 if (!file_exists($path)) return "Page don't exist";
 
 switch ($page) {
+    case "delete":
+        require $path;
+        break;
+        
     case "create":
         require $path;
         break;
