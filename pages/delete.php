@@ -9,7 +9,7 @@ $stmt = $pdo->query("SELECT * FROM users");
 <ol>
     <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
         <li>
-            <a class="deleting" data-id="id=<?= $row["user_id"]; ?>"><?= $row["name"] . "<br>"; ?></a>
+            <span><?= $row["name"] . " - ";?></span><a class="deleting" data-id="id=<?= $row["user_id"]; ?>">Delete</a>
         </li>
     <?php endwhile; ?>
 
