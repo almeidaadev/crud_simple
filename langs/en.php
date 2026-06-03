@@ -1,7 +1,8 @@
 <?php
 
 return [
-    "h1_create" => "create page",
+    "h1_create" => "Create page",
+    "h1_edit" => "Edit page",
 
     "label_name" => "Name",
     "label_email" => "Email",

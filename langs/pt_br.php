@@ -1,8 +1,9 @@
 <?php
 
 return [
-    "h1_create" => "Pagina criar" ,
-    
+    "h1_create" => "Pagina criar",
+    "h1_edit" => "Pagina Editar",
+
     "label_name" => "Nome",
     "label_email" => "Email",
     "label_password" => "Senha",

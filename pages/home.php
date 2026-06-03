@@ -10,3 +10,4 @@ $_SESSION["lang"] = $lang;
 <a href="?lang=en">English</a>
 <a href="?page=create">Create</a>
 <a href="?page=delete">Delete</a>
+<a href="?page=edit">Edit</a>
