@@ -25,6 +25,7 @@ switch ($action) {
 
         break;
     case "create":
+
         if (empty($_POST["name"]) || empty($_POST["email"]) || empty($_POST["password"])) {
             echo json_encode([
                 "status" => false,
@@ -51,6 +52,44 @@ switch ($action) {
             echo json_encode([
                 "status" => true,
                 "message" => "New record created successfully."
+            ]);
+        } else {
+            echo json_encode([
+                "status" => true,
+                "message" => "Error inserting data."
+            ]);
+        }
+        break;
+
+    case "edit":
+
+        if (empty($_POST["name"]) || empty($_POST["email"]) || empty($_POST["password"])) {
+            echo json_encode([
+                "status" => false,
+                "message" => "Todos os campos são obrigatorios"
+            ]);
+            exit();
+        }
+
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        // 2. Prepare the SQL statement with named placeholders
+        $sql = "UPDATE users SET name = :name, email = :email password = :password WHERE id = :id";
+        // $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
+        $stmt = $pdo->prepare($sql);
+
+        $data = [
+            ':name' => $name,
+            ':email' => $email,
+            ':password' => $password
+        ];
+
+        if ($stmt->execute($data)) {
+            echo json_encode([
+                "status" => true,
+                "message" => "New edit created successfully."
             ]);
         } else {
             echo json_encode([

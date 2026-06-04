@@ -1,9 +1,13 @@
 <?php
-require __DIR__ . "/../helpers/functions.php";
 session_start();
+require __DIR__ . "/../helpers/functions.php";
+require "./Database/Connection.php";
 ?>
 
 <h1><?= __("h1_edit") ?></h1>
+
+
+
 
 
 <form method="POST">
